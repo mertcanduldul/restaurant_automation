@@ -22,6 +22,11 @@ app.get('/about', (req, res) => {
         title: 'HAKKIMIZDA'
     })
 })
+
+app.get('/login',(req,res)=>{
+    res.render('login')
+})
+
 app.get('/about-us', (req, res) => {
     res.redirect('./about')
 })

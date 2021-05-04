@@ -1,0 +1,123 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 330px;
+    height: 130px;
+    background: url("https://images.unsplash.com/photo-1581873372796-635b67ca2008?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHBpenphfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60") center/cover;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.layer-one,
+.layer-two {
+    position: absolute;
+    height: 100%;
+    background: #fff;
+    transition: .5s ease;
+}
+
+.layer-one {
+    width: 70px;
+    clip-path: polygon(0 0, 100% 0, 25% 100%, 0 100%);
+    transform: translateX(-100px);
+}
+
+.layer-two {
+    top: 0;
+    right: 0;
+    width: 240px;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateX(250px);
+}
+
+input {
+    display: none;
+}
+
+label {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+input:checked+label {
+    color: #fec331;
+}
+
+.text {
+    position: relative;
+    margin-left: 3rem;
+    padding: .2rem;
+    height: 130px;
+    font-family: 'Alata', sans-serif;
+}
+
+.detail {
+    margin: 5px 0;
+    display: flex;
+    font-size: .7rem;
+    color: #26242e;
+}
+
+.detail p {
+    margin-right: .9rem;
+}
+
+.fa-clock {
+    color: #3ac5f0;
+}
+
+.fa-star {
+    color: #fec331;
+}
+
+.fa-fire {
+    color: #fe2d38;
+}
+
+.text a.del {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 7px 25px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #fe2d38;
+    box-shadow: 0 2px 4px rgba(254, 45, 56, .7);
+    border-radius: 2px;
+    font-family: 'Alata', sans-serif;
+}
+
+.text a.del:hover {
+    background: #f8a4a8;
+    transition-duration: 0.2s;
+    cursor:pointer;
+
+}
+
+#price {
+    position: absolute;
+    bottom: 15px;
+    left: 4px;
+}
+
+.container:hover .layer-one {
+    transform: translateX(0);
+}
+
+.container:hover .layer-two {
+    transform: translateX(0);
+}
