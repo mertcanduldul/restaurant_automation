@@ -31,9 +31,9 @@ app.use(express.urlencoded({
 app.get('/eqc', (req, res) => {
     const blog = new Blog({
         title: 'Büyük Pizza',
-        short: '100₺',
+        short: '88 ₺',
         long: '4 Kişilik',
-        photo: './images/pz2.jpeg'
+        photo: 'pz3.jpg'
     })
     blog.save()
         .then((result) => {
@@ -116,6 +116,16 @@ app.post('/admin/add', (req, res) => {
         console.log(err)
     })
 
+})
+app.delete('/admin/delete/:id', (req, res) => {
+    const id = req.params.id
+    Blog.findByIdAndDelete(id).then((result) => {
+        res.json({
+            link: '/admin'
+        })
+    }).catch((err) => {
+        console.log(err)
+    })
 })
 
 
