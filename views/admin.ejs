@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%-include('./inc/head')%>
+</head>
+
+<body>
+    <section>
+        <%-include('./inc/nav')%>
+        <H2>ADMIN SAYFASI</H2>
+        <H3>URUNLER</H3>
+        <a href="/admin/add">YENİ URUN EKLE</a>
+        <ul>
+            <%blogs.forEach(blog=>{%>
+            <li>
+                <a href="/blog/<%=blog._id%>"><%=blog.title%></a>
+                <a href="#">Sil</a>
+                <p><%=blog.short%></p>
+            </li>
+            <%})%>
+        </ul>
+    </section>
+
+</body>
+
+</html>

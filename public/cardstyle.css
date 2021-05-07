@@ -11,7 +11,7 @@
     transform: translate(-50%, -50%);
     width: 330px;
     height: 130px;
-    background: url("https://images.unsplash.com/photo-1581873372796-635b67ca2008?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHBpenphfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60") center/cover;
+    background: url("") center/cover;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
     border-radius: 5px;
     overflow: hidden;
