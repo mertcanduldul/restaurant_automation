@@ -3,6 +3,9 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const Blog = require('./models/blogs')
 
+const adminRoutes = require('./routes/adminRoutes')
+const blogRoutes = require('./routes/blogRoutes')
+
 const PORT = process.env.PORT || 3001
 const app = express()
 
@@ -28,52 +31,14 @@ app.use(express.urlencoded({
     extended: true
 }))
 
-app.get('/eqc', (req, res) => {
-    const blog = new Blog({
-        title: 'Büyük Pizza',
-        short: '88 ₺',
-        long: '4 Kişilik',
-        photo: 'pz3.jpg'
-    })
-    blog.save()
-        .then((result) => {
-            res.send(result)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-})
 
-app.get('/all', (req, res) => {
-    Blog.find().then((result) => {
-        res.send(result)
-    }).catch((err) => {
-        console.log(err)
-    })
-})
 
 app.get('/', (req, res) => {
-    Blog.find().sort({
-        createdAt: -1
-    }).then((result) => {
-        res.render('index', {
-            title: 'ANASAYFA',
-            blogs: result
-        })
-    })
+    res.redirect('/blog')
 })
 
-app.get('/blog/:id', (req, res) => {
-    const id = req.params.id
-    Blog.findById(id).then((result) => {
-        res.render('blog', {
-            blog: result,
-            title: 'Detay'
-        })
-    }).catch((err) => {
-        console.log(err)
-    })
-})
+app.use(adminRoutes)
+app.use(blogRoutes)
 
 app.get('/about', (req, res) => {
     res.render('about', {
